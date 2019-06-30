@@ -697,7 +697,7 @@ pr
 
   Lemma spec_same_level_0: forall x y, P [x] [y] (same_level x y).
   Proof.
-  change same_level with same_level_folded. unfold_lets.
+  change same_level with same_level_folded.
   destruct x, y; apply Pf'; simpl mk_t; rewrite <- ?spec_extend_size;
   match goal with
    | |- context [ extend ?n ?m _ ] => apply (spec_extend n m)
@@ -804,7 +804,7 @@ pr
 
   Lemma spec_iter: forall x y, P [x] [y] (iter x y).
   Proof.
-  change iter with iter_folded; unfold_lets.
+  change iter with iter_folded.
   destruct x; destruct y; apply Pf' || apply Pfd' || apply Pfg' || apply Pfnm;
   simpl mk_t;
   match goal with
